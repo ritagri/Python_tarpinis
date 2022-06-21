@@ -1,30 +1,31 @@
 # Turimas "users" masyvas. 
 
 # Parašykite funkcijas, kurios atlikas nurodytas užduotis:
-# 1. funkcija "filter_dog_owners" - kaip argumentą priims masyvą ir duoto masyvo
-# atveju grąžins "users", kurie turi augintinį.
-# 2. funkcija "filter_adults" - kaip argumentą priims masyvą ir duoto masyvo
-# atveju grąžins masyvą su "users", kurie yra pilnamečiai.
+# 1. funkcija "get_user_average_age" - kaip argumentą priims masyvą ir duoto masyvo
+# atveju grąžins visų "users" amžiaus visurkį kaip skaičių.
+# 2. funkcija "get_user_names" -  kaip argumentą priims masyvą ir duoto masyvo
+# atveju grąžins visų "users" vardus naujame list'e pvz., ['Alex John', 'Ann Smith'...].
+
+# Pastaba: rezultatai turi būti išrikiuoti abėcėlės tvarka
 
 users = [
-  { "id": '1', "name": 'John Smith', "age": 20, "hasDog": True },
-  { "id": '2', "name": 'Ann Smith', "age": 24, "hasDog": False },
-  { "id": '3', "name": 'Tom Jones', "age": 31, "hasDog": True },
-  { "id": '4', "name": 'Rose Peterson', "age": 17, "hasDog": False },
-  { "id": '5', "name": 'Alex John', "age": 25, "hasDog": True },
-  { "id": '6', "name": 'Ronald Jones', "age": 63, "hasDog": True },
-  { "id": '7', "name": 'Elton Smith', "age": 16, "hasDog": True },
-  { "id": '8', "name": 'Simon Peterson', "age": 30, "hasDog": False },
-  { "id": '9', "name": 'Daniel Cane', "age": 51, "hasDog": True },
+  { "id": '1', "name": 'John Smith', "age": 20 },
+  { "id": '2', "name": 'Ann Smith', "age": 24 },
+  { "id": '3', "name": 'Tom Jones', "age": 31 },
+  { "id": '4', "name": 'Rose Peterson', "age": 17 },
+  { "id": '5', "name": 'Alex John', "age": 25 },
+  { "id": '6', "name": 'Ronald Jones', "age": 63 },
+  { "id": '7', "name": 'Elton Smith', "age": 16 },
+  { "id": '8', "name": 'Simon Peterson', "age": 30 },
+  { "id": '9', "name": 'Daniel Cane', "age": 51 },
 ]
+from statistics import mean
 
+get_user_average_age = sum(d['age'] for d in users) / len(users)
+print("Visų amžiaus vidurkis:",get_user_average_age)
 
-filter_dog_owners = list(filter(lambda y: y["hasDog"] == True, users))
-print("Turi augintinį: ", filter_dog_owners)
-
-filter_adults = list(filter(lambda x: x["age"] >= 18, users))
-print("Pilnamečiai: ", filter_adults)
-
+get_user_names = sorted(list(map(lambda x : x["name"], users)))
+print(f'Print Users: {get_user_names}')
 
 
 
